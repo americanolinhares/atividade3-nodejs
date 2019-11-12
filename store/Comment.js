@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
 
-const commentSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({ 
+
+    product: {
+        type: Number
+    },
+
     author: {
         type: String
     },
+    
     comment: {
         type: String
     },

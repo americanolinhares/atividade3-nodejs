@@ -5,17 +5,21 @@ const db = knex(knexConfigs.development)
 const TABLE_NAME = 'products'
 
 module.exports = {
+
     get() {
         return db(TABLE_NAME).select('*')
     },
+
     insert(product) {
         return db(TABLE_NAME).insert(product);
     },
+
     delete(product) {
         return db(TABLE_NAME)
             .where('id', product.id)
             .del();
     },
+
     update(product) {
         return db(TABLE_NAME)
             .where('id', product.id)
@@ -25,9 +29,11 @@ module.exports = {
                 price: product.price
             });
     },
+
     getById(id){
-        return db(TABLE_NAME).select('*')
-        .where('id', id);
+        return db(TABLE_NAME)
+            .select('*')
+            .where('id', id);
     }
 
 }
